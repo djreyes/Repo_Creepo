@@ -1,9 +1,9 @@
 module RepoCreepo
   class RepoMethod
     attr_reader :name, :count
-    def initialize(name)
+    def initialize(name, count = 1)
       @name = name
-      @count = 1
+      @count = count
     end
 
     def increment!

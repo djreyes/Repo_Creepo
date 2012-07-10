@@ -17,6 +17,14 @@ describe 'RepoCreepo::RepoMethod' do
     end
   end
 
+  context '#intialize with arguments' do
+    it 'should initialize a count' do
+      count = 4
+      repo_method = RepoMethod.new('#each', count)
+      repo_method.count.should eq count
+    end
+  end
+
   context 'other methods' do
     it 'can add to count' do
       @repo_method.increment!
@@ -24,6 +32,10 @@ describe 'RepoCreepo::RepoMethod' do
       @repo_method.increment!
       @repo_method.count.should eq 3
     end
+  end
+
+  context '#get_count' do
+    it 'should count individual methods within an array'
   end
 
 end

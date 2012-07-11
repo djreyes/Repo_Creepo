@@ -17,10 +17,6 @@ describe 'RepoCreepo::RepoReport' do
     end
   end
 
-  context '#self.from_dir' do
-    it 'should create a report from a directory'
-  end
-
   context '#method_counter' do
     before (:each) {@my_hash = @repo_report.method_counter([:get, :push, :each, :push, :push])}
     it 'should return a hash' do
@@ -68,6 +64,13 @@ describe 'RepoCreepo::RepoReport' do
 
     end
 
+
+  end
+
+  context 'self.from_dir' do
+    it "creates new instance of RepoReport" do
+      RepoReport.from_dir('./temp').should be_an_instance_of RepoReport
+    end
 
   end
 

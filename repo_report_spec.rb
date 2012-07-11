@@ -32,13 +32,6 @@ describe 'RepoCreepo::RepoReport' do
   context '#method_bundler' do
     before (:each) {@method_hash = @repo_report.method_counter([:get, :push, :each, :push, :push])}
 
-    # @method_hash[:get] => 1
-    # @method_hash[:push] => 3
-    # @method_hash[:each] => 1
-    #
-    # RepoMethod.new(:get, 1)
-    # RepoMethod.new(:push, 3)
-
     it 'should load @repo_methods with method objects' do
       @repo_report.method_bundler(@method_hash)
       @repo_report.repo_methods.should_not be_empty
@@ -51,19 +44,10 @@ describe 'RepoCreepo::RepoReport' do
 
     it 'should store the counts of each method in the @repo_methods array' do
       @repo_report.method_bundler(@method_hash)
-      # RepoMethod.new(:get, @method_hash[:get])
-      # :get.count.should eq 1
-
-      # @method_hash = @repo_report.method_counter(array_from_dk)
-      # @repo_report.method_bundler(@method_hash)
-      # repo_methods gets filled with something as a result
-      # @repo_reports.repo_methods holds what we expect
       first_element_name = @repo_report.repo_methods[0].name
       method_count = @method_hash[first_element_name]
       @repo_report.repo_methods[0].count.should eq method_count
-
     end
-
 
   end
 
